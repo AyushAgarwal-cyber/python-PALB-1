@@ -226,3 +226,154 @@ def jumpFunc(arr):
     return jump
 numJump = jumpFunc(arr)
 print(f"Number of jumps: {numJump}")
+#grading system 
+# input -->Enter name,marks
+#  task-->Assign grades
+name=input("Enter your name:")
+roll_no=int(input("Enter your roll no:"))
+marks1=int(input("Enter your marks in first subject:"))
+marks2=int(input("Enter your marks in second subject:"))
+marks3=int(input("Enter your marks in third subject:"))
+Total=marks1+marks2+marks3
+percentage=Total/3
+print(Total)
+print(percentage)
+# checking condition
+# if marks of each subject is greater or equal to 40 then print pass 
+if marks1>=40 and marks2>=40 and marks3>=40:
+    result="Pass"
+else:
+    result="Fail"
+print(result)
+if percentage>=90:
+    Grade="A+"
+elif percentage>=80:
+    Grade="A"
+elif percentage>=70:
+    Grade="B"
+else:
+    Grade="F"
+print(Grade)
+#Operations on list
+# sum of elements in a list
+lst=[10,20,30,40,50]
+print(sum(lst))
+# insert a perticular data into the list at a specefic position
+lst.insert(2,25)
+print(lst)
+# remove duplicate data from the list
+lst=[10,10,20,20,20,30,30]
+ls=[]
+for i in lst:
+    if i not in ls:
+        ls.append(i)
+print(ls)
+# count even and odd numbers that are present in the list 
+lst=[1,2,3,4,5,6]
+count_even=0
+count_odd=0
+for i in lst:
+    if i%2==0:
+        count_even+=1
+    else:
+        count_odd+=1
+print(count_even)
+print(count_odd)
+#  operations on tuples 
+#  print first and last data from tuplpe 
+stu=("Aman","Yash","Bhanu","Shanu","Manu")
+print(stu[0])
+print(stu[-1])
+#  convert tuple to list
+stu_lst=list(stu)
+print(stu_lst)
+print(type(stu_lst))
+def diff(arr,k):
+    temp=[]
+    n=len(arr)
+    for i in range(0,n):
+        if i<k:
+            a=arr[i]+k
+            temp.append(a)
+        else:
+            a=arr[i]-k
+            temp.append(a)
+    return temp[n-1]-temp[0]
+arr=[]
+n=int(input("Enter the no of towers:"))
+for i in range(n):
+    a=int(input("Enter the height of the tower:"))
+    arr.append(a)
+k=int(input("Enter a positive integer:"))
+dif=diff(arr,k)
+print(dif)
+def repeat(arr):
+    n=len(arr)
+    for i in range(0,n-1):
+        for j in range (i+1,n):
+            if arr[i]==arr[j]:
+                return arr[i]
+arr=[1,3,4,3,2]
+print(repeat(arr))
+def modify(a,b):
+    n=len(a)
+    m=len(b)
+    a.extend(b)
+    a.sort()
+    b.clear()
+    x=len(a)
+    for i in range(n,x):
+        c=a.pop(n)
+        b.append(c)
+    print(a)
+    print(b)
+a=[2,4,7,10]
+b=[2,3]
+modify(a,b)
+def intervals(arr):
+    arr.sort()
+    i=0
+    while i < len(arr)-1:
+        if arr[i][1]>=arr[i+1][0]:
+            arr[i][1]=max(arr[i][1],arr[i+1][1])
+            arr.pop(i+1)
+        else:
+            i+=1
+    return arr
+arr=[[4,7],[1,4]]
+print(intervals(arr))
+def fact(num):
+    a=1
+    for i in range(1,num+1):
+        a=a*i
+    temp=str(a)
+    n=len(temp)
+    arr=[]
+    for i in range(n):
+        arr.append(temp[i])
+    return arr
+num=int(input("Enter a number:"))
+fac=fact(num)
+print(fac)
+def subset(a,b):
+    n=len(b)
+    count=0
+    for i in range(n):
+        if b[i] in a:
+            count+=1
+    if count==n:
+        return True 
+    else:
+        return False
+n=int(input("Enter the size of the first array:"))
+a=[]
+b=[]
+for i in range(n):
+    c=int(input("Enter the elements:"))
+    a.append(c)
+m=int(input("Enter the size of the second array:"))
+for i in range(m):
+    c=int(input("Enter the elements:"))
+    b.append(c)
+sub=subset(a,b)
+print(sub)
